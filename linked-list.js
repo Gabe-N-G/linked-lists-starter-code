@@ -32,16 +32,28 @@ class LinkedList{
             this.head = node
             return
         } else {
-            let walker = this.head 
+            let walker = this.head
+            //walker tracks the node we want to attach things to
             while (walker.next){
                 walker = walker.next
+                //until there is nothing, walker traverses till the end of the list.
             }
             walker.next = node
+            //we add the new node to the end of walker.
             return
         }
-        // creates a new node with the given data and adds it to back of the list
     }
     prependNode(data){
+        const node = new Node(data);
+        if(!this.head){
+            this.head = node
+            return
+        } else {
+            let oldHead = this.head
+            this.head = node
+            node.next = oldHead 
+        return
+        }
         // creates a new node with the given data and adds it to the front of the list
     }
     pop(){
