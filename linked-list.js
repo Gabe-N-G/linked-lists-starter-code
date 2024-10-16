@@ -1,7 +1,7 @@
 class Node{
-    constructor(){
-        data : 
-        next : null
+    constructor(data){
+        this.data = data;
+        this.next = null;
         // a Node starts with a given data property
         // a Node also has a .next property initialized as null
     }
@@ -9,6 +9,7 @@ class Node{
 
 class LinkedList{
     constructor(){
+        this.head = null
         // a Linked List starts with a "head" property intialized as null
     }
     appendNode(data){
