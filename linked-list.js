@@ -57,6 +57,21 @@ class LinkedList{
         // creates a new node with the given data and adds it to the front of the list
     }
     pop(){
+        if(!this.head){
+            return null
+        } else if (!this.head.next){
+            let removeme = this.head
+            this.head = null
+            return removeme
+        } else{
+        let walker = this.head
+            while (walker.next.next){
+                walker = walker.next
+            }
+        let removeme = walker.next
+        walker.next = null
+        return removeme
+        }
         // removes the last node from the list and returns it
     }
     removeFromFront(){
