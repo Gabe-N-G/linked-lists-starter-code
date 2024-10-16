@@ -7,12 +7,38 @@ class Node{
     }
 }
 
+/*
+ this.data = (key)
+ data = value
+
+ to connect nodes
+
+ const firstNode = new Node(10)
+ const secondNode= new Node(5)
+ firstNode.next = secondNode
+
+*/
+
 class LinkedList{
     constructor(){
         this.head = null
         // a Linked List starts with a "head" property intialized as null
     }
     appendNode(data){
+        const node = new Node(data);
+        //creates a new node with data passed down
+        if (!this.head){
+            //iof there is no head, makes the next node the head
+            this.head = node
+            return
+        } else {
+            let walker = this.head 
+            while (walker.next){
+                walker = walker.next
+            }
+            walker.next = node
+            return
+        }
         // creates a new node with the given data and adds it to back of the list
     }
     prependNode(data){
