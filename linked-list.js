@@ -45,32 +45,32 @@ class LinkedList{
     }
     prependNode(data){
         const node = new Node(data);
-        if(!this.head){
-            this.head = node
+        if(!this.head){ //special case, there is no head
+            this.head = node //the new node is now the head
             return
         } else {
-            let oldHead = this.head
-            this.head = node
-            node.next = oldHead 
+            let oldHead = this.head //finding the head
+            this.head = node // reasigning the node you're creating as the head
+            node.next = oldHead  // making the next from the head the head that which was before.
         return
         }
         // creates a new node with the given data and adds it to the front of the list
     }
     pop(){
-        if(!this.head){
+        if(!this.head){ // if theres no item in the list, return there is nothing to remove
             return null
-        } else if (!this.head.next){
+        } else if (!this.head.next){ // if there is only one item
             let removeme = this.head
-            this.head = null
+            this.head = null //you need to sever the ties to fully remove it.
             return removeme
         } else{
-        let walker = this.head
-            while (walker.next.next){
-                walker = walker.next
+        let walker = this.head //start from the beginning of the list
+            while (walker.next.next){ //you need 2nd to last to sever the ties correctly
+                walker = walker.next // reassigns walker till it is item -> item -> null
             }
-        let removeme = walker.next
-        walker.next = null
-        return removeme
+        let removeme = walker.next //assigning the item we want to remove
+        walker.next = null //severing the ties to the item you want to remove (they know next/next is null)
+        return removeme 
         }
         // removes the last node from the list and returns it
     }
